@@ -1,4 +1,3 @@
-sudo: required
 before_install:
 - docker login --email=$DOCKER_HUB_EMAIL --username=$DOCKER_HUB_USERNAME --password=$DOCKER_HUB_PASSWORD
 - docker build nginx -t theskeleton-webserver
