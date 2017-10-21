@@ -7,10 +7,10 @@ script:
 - docker tag theskeleton-webserver:latest $DOCKER_HUB_USERNAME/theskeleton-webserver:production
 - docker push $DOCKER_HUB_USERNAME/theskeleton-webserver:production
 before_deploy:
-- openssl aes-256-cbc -K $encrypted_e2a53ddc64a6_key -iv $encrypted_e2a53ddc64a6_iv -in id_rsa.enc -out /tmp/id_rsa -d
+- openssl aes-256-cbc -K $encrypted_e2a53ddc64a6_key -iv $encrypted_e2a53ddc64a6_iv -in id_rsa.enc -out ./id_rsa -d
 - eval "$(ssh-agent -s)"
-- chmod 600 /tmp/id_rsa
-- ssh-add /tmp/id_rsa
+- chmod 600 ./id_rsa
+- ssh-add ./id_rsa
 deploy:
   provider: script
   skip_cleanup: true
