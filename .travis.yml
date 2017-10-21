@@ -14,7 +14,7 @@ deploy:
   provider: script
   skip_cleanup: true
   script: chmod 600 id_rsa && ssh -o StrictHostKeyChecking=no -i ./id_rsa docker@52.187.120.141
-    './deploy.sh'
+    'docker-compose down && docker-compose pull && docker-compose up -d'
   on:
     branch: master
 env:
