@@ -1,3 +1,3 @@
-FROM nginx:1.9
+FROM nginx:alpine
 COPY ./html/ /usr/share/nginx/html/
 COPY ./theskeleton.conf /etc/nginx/conf.d/
